@@ -1,6 +1,7 @@
 # Import modules
 import sys
 from helper import *
+from ruamel import yaml
 
 import xml.etree.ElementTree as ET
 
@@ -22,18 +23,19 @@ if __name__ == "__main__":
     print('##################')
 
     # Open the user.yaml file as read only
-
+    with open('user.yaml', 'r') as stream:
         # Load the stream using safe_load
+        user_yaml = yaml.safe_load(stream)
 
     # Print the object type
     print("Type of user_yaml variable:")
-
-    print('----------------------')
-
+    print(type(user_yaml))
     # Iterate over the keys of the user_yaml and print them
     print('Keys in user_yaml:')
 
-    print('----------------------')
+    for key in user_yaml:
+
+        print(key)
 
     # Create a new instance of class User
 
